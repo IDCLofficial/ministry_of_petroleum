@@ -11,7 +11,7 @@ export default function EventsPage() {
       <EventsListSection />
       <PastEvents />
       <CTASection 
-        heading="Together we can Promote Tourism and Culture in Imo State"
+        heading="Together we can build the oil sector in Imo state"
         subtext="Want to get involved or partner with us? Reach out today"
         buttonLabel="Contact Us" 
         buttonHref="/contact-us"

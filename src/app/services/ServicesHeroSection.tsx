@@ -16,7 +16,7 @@ export default function ServicesHeroSection() {
                     <motion.h1
                         className="text-2xl md:text-[3rem] font-bold text-white leading-tight"
                         initial={{ opacity: 1 }}
-                        animate={{}}
+                        
                     >
                         {"Our Services".split(" ").map((word, wordIdx, arr) => (
                             <span key={wordIdx} style={{ display: "inline-block", whiteSpace: "pre" }}>
