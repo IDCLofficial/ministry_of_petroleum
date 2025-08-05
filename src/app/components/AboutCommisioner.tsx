@@ -35,7 +35,7 @@ export default function AboutCommisioner({imgSrc, title}: AboutCommisionerProps)
             <div className="flex-1 w-full md:w-auto mt-6 md:mt-0">
                 <h2 className="text-xl md:text-2xl lg:text-[43px] font-bold text-dark-primary mb-4">{title}</h2>
                 <p className="text-dark-primary-body text-base mb-4">
-                    Barrister Emeka Mgbudem is a highly accomplished corporate lawyer and seasoned private sector leader with over 35 years of experience in legal practice and business development. He is also a leadership consultant and public policy expert, with advanced postgraduate training in justice administration, arbitration, international finance, strategic and transformational consultancy, corporate governance, and social policy from King's College London and Harvard University.
+                    Barrister Emeka Mgbudem is a highly accomplished corporate lawyer and seasoned private sector leader with over 35 years of experience in legal practice and business development. He is also a leadership consultant and public policy expert, with advanced postgraduate training in justice administration, arbitration, international finance, strategic and transformational consultancy, corporate governance, and social policy from King&apos;s College London and Harvard University.
                     Barrister Mgbudem brings his extensive expertise and leadership to drive the “Gas to Prosperity” initiative of the Uzodinma administration. Under his pragmatic guidance, Imo State is poised to unlock the economic potential of its abundant natural gas resources.
                 </p>
                 {/* <p className="text-dark-primary-body text-base mb-6 text-justify">
