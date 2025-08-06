@@ -6,7 +6,7 @@ export const departments = [
   },
   {
     name: "Midstream & Downstream Department",
-    image: "/images/midstream_downstream.jpg",
+    image: "/images/midstream.jpg",
     description: "Manages refining, storage, distribution of petroleum products, and infrastructure projects."
   },
   {
@@ -46,12 +46,12 @@ export const departments = [
   },
   {
     name: "Human Resources Department",
-    image: "/images/human_resources.jpg",
+    image: "/images/human-resources.jpg",
     description: "Manages recruitment, staff training, and employee welfare within the ministry."
   },
   {
     name: "General Services Department",
-    image: "/images/general_services.jpg",
+    image: "/images/general.jpg",
     description: "Coordinates logistics, transportation, maintenance, and office facility management."
   },
   {
