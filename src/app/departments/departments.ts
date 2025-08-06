@@ -21,7 +21,7 @@ export const departments = [
   },
   {
     name: "Internal Audit Department",
-    image: "/images/internal-audit.png",
+    image: "/images/Internal-audit.png",
     description: "Ensures compliance through auditing and maintaining strong internal control systems."
   },
   {
