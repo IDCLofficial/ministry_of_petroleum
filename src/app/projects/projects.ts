@@ -33,7 +33,7 @@ export const projects:project[] = [
   },
   {
     title: "Environmental & IGR Projects",
-    image: "/images/environment-projects.jpeg",
+    image: "/images/oil_testing.jpg",
     status: "ongoing",
     description: "EIAs, erosion control, and lab services for gas testing. NEWMAP collaboration supports climate resilience and sanitation."
   }

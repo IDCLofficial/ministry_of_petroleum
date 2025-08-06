@@ -49,7 +49,7 @@ export const Hero = ({title, caption, subtitle}: HeroProps) => {
 
 export const SubsequentHero = ({ children, className }: SubsequentHeroProps) => {
     return (
-        <div className="relative min-h-[85vh] px-2 md:px-[3rem] py-8 md:pt-10 flex flex-col justify-center gap-4 bg-gradient-to-r from-green-900/20 via-black to-black">
+        <div className="relative min-h-[85vh] px-2 md:px-[3rem] py-8 md:pt-10 flex flex-col justify-center gap-4 bg-gradient-to-r">
             <div className={`absolute inset-0 bg-cover bg-center z-0 ${className}`}></div>
             {children}
         </div>

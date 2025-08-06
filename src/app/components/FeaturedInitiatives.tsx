@@ -24,7 +24,7 @@ export default function FeaturedInitiatives() {
       >
         {projects?.slice(0, 4).map((initiative) => (
           <div key={initiative.title} className="bg-white flex-1 flex flex-col items-center h-full relative cursor-pointer hover:scale-105 transition-all duration-300">
-            <div className="relative w-full h-[140px] md:h-[250px] lg:h-[300px] z-0">
+            <div className="relative w-full h-[180px] md:h-[250px] lg:h-[300px] z-0">
               <Image src={initiative.image} alt={initiative.title} fill className="object-fit" />
             </div>
             <div className="w-full flex-1 flex flex-col justify-between md:items-center p-2 md:p-4 bg-white mx-auto shadow-md">

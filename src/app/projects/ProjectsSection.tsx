@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { projects } from "./projects";
+import Link from "next/link";
 
 
 const PROJECTS_PER_PAGE = 5;
@@ -16,9 +17,10 @@ export default function ProjectsSection() {
 
     if(currentProjects.length === 0) {
         return (
-            <section className="w-full py-10 md:py-16 bg-white flex flex-col items-center gap-8 md:gap-22 px-4 md:px-8">
-                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center">No projects found</h1>
-            </section>
+            <div className="w-full flex flex-col gap-2 items center justify-center p-4 border-1 border-gray-200 text-center">
+                <p>No information at the moment. <br/> Come back later</p>
+                <Link href="/" className="bg-primary-green p-2 rounded text-white">Back to homepage</Link>
+            </div>
         )
     }
 

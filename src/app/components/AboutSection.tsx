@@ -30,7 +30,7 @@ export default function AboutSection({title, subtitle, image1, image2}: AboutSec
             </PageTransition>
               <div className="w-full lg:w-auto flex flex-col gap-4">
                 <PageTransition type="fadeUp">
-                  <p className="text-gray-200 text-[1rem] md:text-[16px] lg:max-w-lg text-justify texl-lg">
+                  <p className="text-gray-200 text-[1rem] md:text-[16px] lg:max-w-lg text-left text-lg">
                       {subtitle}
                   </p>
                 </PageTransition>

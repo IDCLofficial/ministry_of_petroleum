@@ -1,3 +1,4 @@
+import Link from "next/link";
 import NewsCard from "./NewsCard";
 import newsList from "./newsList";
 
@@ -5,8 +6,9 @@ export default function NewsGrid() {
 
   if(newsList.length === 0) {
     return(
-      <div className="w-full flex items center justify-center">
-        <p>There is currently no news to See. Come back later</p>
+      <div className="w-full flex flex-col gap-2 items center justify-center p-4 border-1 border-gray-200 text-center">
+        <p>There is currently no news to See. <br/> Come back later</p>
+        <Link href="/" className="bg-primary-green p-2 rounded text-white">Back to homepage</Link>
       </div>
     )
   }

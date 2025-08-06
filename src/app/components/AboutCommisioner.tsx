@@ -21,12 +21,12 @@ export default function AboutCommisioner({imgSrc, title}: AboutCommisionerProps)
         >
             {/* Left: Commissioner Image */}
             <div className="bg-white rounded-xl shadow-lg flex-shrink-0 w-full md:w-auto flex justify-center">
-                <div className="relative w-full h-[320px] sm:w-[380px] md:h-[400px] lg:w-[400px] lg:h-[400px]">
+                <div className="relative w-full h-[380px] sm:w-[380px] md:h-[400px] lg:w-[400px] lg:h-[400px]">
                     <Image
                     src={imgSrc}
                     alt="Commissioner"
                     fill
-                    className="object-cover object-center rounded-xl"
+                    className="object-fit object-center rounded-xl"
                     sizes="(max-width: 768px) 220px, 320px"
                     />
                 </div>

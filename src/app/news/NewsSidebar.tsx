@@ -13,6 +13,7 @@ const categories = [
 const popularNews = newsList.slice(0, 3).map(({ title, date, img }) => ({ title, date, img }));
 
 export default function NewsSidebar() {
+  if(newsList.length === 0) return null;
   return (
     <aside className="w-full lg:w-64 flex-shrink-0 bg-[#F9F9F9] p-2 md:p-4 mb-8 md:mb-0">
       <div className="md:hidden">

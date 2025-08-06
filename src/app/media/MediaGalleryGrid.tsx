@@ -1,5 +1,6 @@
 import React from "react";
 import MediaGalleryCard from "./MediaGalleryCard";
+import Link from "next/link";
 
 interface MediaItem {
   image: string;
@@ -14,8 +15,9 @@ interface MediaGalleryGridProps {
 const MediaGalleryGrid: React.FC<MediaGalleryGridProps> = ({ items }) => {
   if(items.length === 0) {
     return (
-      <div className="w-full flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-medium">No media items found</h1>
+      <div className="w-full flex flex-col gap-2 items center justify-center p-4 border-1 border-gray-200 text-center">
+        <p>The media gallery is empty at the moment. <br/> Come back later</p>
+        <Link href="/" className="bg-primary-green p-2 rounded text-white">Back to homepage</Link>
       </div>
     )
   }

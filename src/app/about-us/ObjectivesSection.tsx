@@ -15,10 +15,13 @@ export const ObjectivesSection = () => {
     ];
 
     const coreValues = [
-        "Enlightenment",
-        "Empowerment",
-        "Excellence",
-        "Social Responsibility"
+        "Transparency and Accountability",
+        "Sustainability",
+        "Community Empowerment",
+        "Innovation and Excellence",
+        "Collaboration and Partnership",
+        "Integrity",
+        "Safety and Compliance"
     ];
 
     return (

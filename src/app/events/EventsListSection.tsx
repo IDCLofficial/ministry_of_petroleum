@@ -29,7 +29,10 @@ export default function EventsListSection() {
     <section className="w-full mx-auto py-16 px-4 md:px-8">
       <h2 className="text-2xl md:text-2xl font-medium mb-8">Upcoming Events</h2>
       {upcomingEvents.length === 0 ? (
-        <div className="text-center text-gray-500 py-12 text-lg">No upcoming events at this time. Please check back later.</div>
+        <div className="w-full flex flex-col gap-2 items center justify-center p-4 border-1 border-gray-200 text-center">
+          <p>No events currently ongoing. <br/> Come back later</p>
+          <Link href="/" className="bg-primary-green p-2 rounded text-white">Back to homepage</Link>
+        </div>
       ) : (
         <div className="flex flex-col gap-8">
           {upcomingEvents.map((event, idx) => (

@@ -33,7 +33,7 @@ export default function NewsHeroSection() {
   };
 
   return (
-    <SubsequentHero className="bg-[url('/images/projectsHero.png')] bg-cover bg-center">
+    <SubsequentHero className="bg-[url('/images/gradient.png')] bg-cover bg-center">
       <div className="relative z-10 flex justify-center">
         <Title label="News" />
       </div>
