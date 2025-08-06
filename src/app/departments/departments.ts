@@ -11,7 +11,7 @@ export const departments = [
   },
   {
     name: "Gas Department",
-    image: "/images/gas.jpg",
+    image: "/images/gas-department.jpg",
     description: "Handles gas resource development, including LPG/CNG expansion and the Assa Mother Station."
   },
   {
