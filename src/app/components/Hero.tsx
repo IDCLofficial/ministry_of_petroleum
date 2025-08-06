@@ -28,7 +28,7 @@ export const Hero = ({title, caption, subtitle}: HeroProps) => {
                 className="absolute inset-0 w-full h-screen object-cover z-0"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-transparent z-0"></div>
-            <div className="relative z-10 py-10">
+            <div className="relative z-10 pt-[1rem]">
                 <div className="w-full md:w-[70%] flex flex-col gap-2 pt-[1rem]">
                     <PageTransition type="fadeUp">
                         <Title label={title}/>
