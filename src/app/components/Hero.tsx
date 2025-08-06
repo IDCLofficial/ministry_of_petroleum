@@ -1,8 +1,10 @@
 "use client"
 
+import { ReactNode} from "react";
 import { motion } from "framer-motion";
 import PageTransition from "./PageTransition";
 import { Title } from "./Title";
+import { AppLink } from "./AppLink";
 
 interface HeroProps {
     title: string;
@@ -10,25 +12,12 @@ interface HeroProps {
     subtitle: string;
 }
 
-interface HeroImages {
-    bgImage: string;
+interface SubsequentHeroProps {
+    children: ReactNode,
+    className?: string;
 }
 
-
-const heroImages: HeroImages[] = [
-    {
-        bgImage: "/images/heroImage.png"
-    },
-    {
-        bgImage: "/images/heroImage2.jpg"
-    },
-    {
-        bgImage: "/images/heroImage3.jpg"
-    }
-];
-
 export const Hero = ({title, caption, subtitle}: HeroProps) => {
-    // const { bgImage } = heroImages[current];
     const bgImage = "/images/hero_img.jpg";
 
     return(
@@ -36,10 +25,7 @@ export const Hero = ({title, caption, subtitle}: HeroProps) => {
             <motion.img
                 key={bgImage}
                 src={bgImage}
-                className="absolute inset-0 w-full h-full object-cover z-0"
-                initial={{ scale: .97}}
-                whileInView={{ scale: 1}}
-                transition={{ duration: 2, ease: "easeOut" }}
+                className="absolute inset-0 w-full h-screen object-cover z-0"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-transparent z-0"></div>
             <div className="relative z-10 py-10">
@@ -59,13 +45,7 @@ export const Hero = ({title, caption, subtitle}: HeroProps) => {
     )
 }
 
-import { ReactNode, useEffect, useState } from "react";
-import { AppLink } from "./AppLink";
 
-interface SubsequentHeroProps {
-    children: ReactNode,
-    className?: string;
-}
 
 export const SubsequentHero = ({ children, className }: SubsequentHeroProps) => {
     return (
