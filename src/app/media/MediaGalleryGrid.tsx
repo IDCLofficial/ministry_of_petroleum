@@ -15,9 +15,11 @@ interface MediaGalleryGridProps {
 const MediaGalleryGrid: React.FC<MediaGalleryGridProps> = ({ items }) => {
   if(items.length === 0) {
     return (
-      <div className="w-full flex flex-col gap-2 items center justify-center p-4 border-1 border-gray-200 text-center">
-        <p>The media gallery is empty at the moment. <br/> Come back later</p>
-        <Link href="/" className="bg-primary-green p-2 rounded text-white">Back to homepage</Link>
+      <div className="w-full">
+        <div className="w-[400px] mx-auto flex flex-col gap-2 items center justify-center p-4 border-1 border-gray-200 text-center">
+          <p>The media gallery is empty at the moment. <br/> Come back later</p>
+          <Link href="/" className="bg-primary-green p-2 rounded text-white">Back to homepage</Link>
+        </div>
       </div>
     )
   }

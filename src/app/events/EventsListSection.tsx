@@ -29,9 +29,11 @@ export default function EventsListSection() {
     <section className="w-full mx-auto py-16 px-4 md:px-8">
       <h2 className="text-2xl md:text-2xl font-medium mb-8">Upcoming Events</h2>
       {upcomingEvents.length === 0 ? (
-        <div className="w-full flex flex-col gap-2 items center justify-center p-4 border-1 border-gray-200 text-center">
-          <p>No events currently ongoing. <br/> Come back later</p>
-          <Link href="/" className="bg-primary-green p-2 rounded text-white">Back to homepage</Link>
+        <div className="w-full">
+          <div className="w-[400px] mx-auto flex flex-col gap-2 items center justify-center p-4 border-1 border-gray-200 text-center">
+            <p>No events currently ongoing. <br/> Come back later</p>
+            <Link href="/" className="bg-primary-green p-2 rounded text-white">Back to homepage</Link>
+          </div>
         </div>
       ) : (
         <div className="flex flex-col gap-8">
