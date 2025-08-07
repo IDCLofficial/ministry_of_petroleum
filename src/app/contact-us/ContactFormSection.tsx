@@ -4,6 +4,7 @@ import React, { useState } from "react";
 const ContactFormSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -13,17 +14,24 @@ const ContactFormSection = () => {
     e.preventDefault();
     // Check if all fields are filled
     if (form.name && form.email && form.message) {
-      // handle form submission (e.g., send to API)
-      console.log("Form submitted:", form);
-      setIsSubmitted(true);
+      // Set loading state
+      setIsLoading(true);
       
-      // Reset form
-      setForm({ name: "", email: "", message: "" });
-      
-      // Reset success message after 5 seconds
+      // Simulate API call (replace with actual API call)
       setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
+        // handle form submission (e.g., send to API)
+        console.log("Form submitted:", form);
+        setIsSubmitted(true);
+        setIsLoading(false);
+        
+        // Reset form
+        setForm({ name: "", email: "", message: "" });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      }, 1500);
     }
   };
 
@@ -68,9 +76,10 @@ const ContactFormSection = () => {
         />
         <button
           type="submit"
-          className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded font-medium mt-2 cursor-pointer"
+          disabled={isLoading}
+          className={`w-full py-2 rounded font-medium mt-2 cursor-pointer ${isLoading ? 'bg-gray-500' : 'bg-green-600 hover:bg-green-700'} text-white`}
         >
-          Submit
+          {isLoading ? 'Submitting...' : 'Submit'}
         </button>
       </form>
     </div>
