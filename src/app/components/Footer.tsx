@@ -46,17 +46,17 @@ const info = {
     ],
     contact: [
         {
-            label: "Phone: No information",
+            label: "Phone: 07038592464",
             href: "/"
         },
         {
-            label: "Email: No information",
+            label: "Email: imominofpet@gmail.com",
             href: "/"
         },  
-        {
-            label: "Ministry Address: No information",
-            href: "/"
-        },
+        // {
+        //     label: "Ministry Address: No information",
+        //     href: "/"
+        // },
     ]
 }
 

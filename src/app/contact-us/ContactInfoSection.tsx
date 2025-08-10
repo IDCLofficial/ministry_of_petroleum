@@ -6,10 +6,7 @@ const contactInfo = {
   email: "hos@imostate.gov.ng",
   phone: "+234 812 345 6789",
   socials: [
-    { icon: <FaFacebookF />, href: "https://www.facebook.com/Imotcac/" },
-    { icon: <FaTwitter />, href: "#" },
-    { icon: <FaInstagram />, href: "#" },
-    { icon: <FaLinkedinIn />, href: "#" },
+    { icon: <FaFacebookF />, href: "https://www.facebook.com/profile.php?id=100077682805001" },
   ],
 };
 
