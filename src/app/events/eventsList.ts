@@ -65,21 +65,6 @@ export const events: event[] = [
     speakers: [
       { name: "Imo State Commissioner for Petroleum & Gas Resources", img: "/images/commisioner.jpg", role: "Lead delega tion" }
     ]
-  },
-  {
-    slug: "anoh-operations-update-2025",
-    date: "2025-06-12",
-    location: "ANOH / Imo State (project-wide)",
-    title: "ANOH Gas Plant: start / operations update (industry reporting)",
-    description: "Industry reporting and updates that the ANOH gas processing plant was set to start operations soon, with news coverage describing its expected contributions to gas-to-power and local economic development.",
-    img: imgUrl + "anoh-plant.jpg",
-    time: "TBD",
-    organizer: "ANOH Gas Processing Company / Operators (reported by energy press)",
-    phone: "",
-    address: "ANOH site, Imo State",
-    speakers: [
-      { name: "ANOH / Seplat representatives", img: "", role: "Project operators (reported)" }
-    ]
   }
 ];
 
