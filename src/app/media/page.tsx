@@ -3,8 +3,13 @@ import MediaHeroSection from "./MediaHeroSection";
 import MediaGalleryGrid from "./MediaGalleryGrid";
 import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
+import {events} from "../events/eventsList";
 
-const mediaItems: [] = [];
+const media = events.map((event)=>({
+  image: event.img,
+  title: event.title,
+  isVideo: false
+}))
 
 export default function MediaPage() {
   return (
@@ -15,7 +20,7 @@ export default function MediaPage() {
         backgroundImage="/images/heroImage.png"
       />
       <section className="w-full max-w-7xl mx-auto py-12 px-4">
-        <MediaGalleryGrid items={mediaItems} />
+        <MediaGalleryGrid items={media} />
       </section>
       <CTASection 
         heading="Together we can Promote the oil sector in Imo State" 

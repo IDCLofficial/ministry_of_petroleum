@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import MediaGalleryCard from "./MediaGalleryCard";
-import Link from "next/link";
+import SearchBar from "../components/SearchBar";
 
 interface MediaItem {
   image: string;
@@ -13,22 +15,43 @@ interface MediaGalleryGridProps {
 }
 
 const MediaGalleryGrid: React.FC<MediaGalleryGridProps> = ({ items }) => {
-  if(items.length === 0) {
-    return (
-      <div className="w-full">
-        <div className="w-[400px] mx-auto flex flex-col gap-2 items center justify-center p-4 border-1 border-gray-200 text-center">
-          <p>The media gallery is empty at the moment. <br/> Come back later</p>
-          <Link href="/" className="bg-primary-green p-2 rounded text-white">Back to homepage</Link>
-        </div>
-      </div>
-    )
-  }
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const [filteredItems, setFilteredItems] = React.useState(items);
+
+  React.useEffect(() => {
+    setFilteredItems(items);
+  }, [items]);
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) {
+      setFilteredItems(items);
+      return;
+    }
+    const lowerQuery = searchQuery.toLowerCase();
+    setFilteredItems(
+      items.filter(
+        (item) =>
+          item.title?.toLowerCase().includes(lowerQuery) ||
+          item.image?.toLowerCase().includes(lowerQuery)
+      )
+    );
+  };
+
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {items.map((item, idx) => (
-        <MediaGalleryCard key={idx} image={item.image} title={item.title} isVideo={item.isVideo} />
-      ))}
-    </div>
+    <>
+      <SearchBar
+        placeholder="Search"
+        value={searchQuery}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
+        onSearch={handleSearch}
+      />
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {filteredItems.map((item, idx) => (
+          <MediaGalleryCard key={idx} image={item.image} title={item.title} isVideo={item.isVideo} />
+        ))}
+      </div>
+    </>
   );
 };
 
