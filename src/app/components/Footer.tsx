@@ -53,10 +53,10 @@ const info = {
             label: "Email: imominofpet@gmail.com",
             href: "/"
         },  
-        // {
-        //     label: "Ministry Address: No information",
-        //     href: "/"
-        // },
+        {
+            label: "Ministry Address: Imo State Secretariat, Port Harcourt Rd, Owerri",
+            href: "/"
+        },
     ]
 }
 
