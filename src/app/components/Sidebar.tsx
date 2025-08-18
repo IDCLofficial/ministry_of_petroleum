@@ -1,5 +1,8 @@
+"use client";
 import NavLinks from "./NavLinks";
 import { FiX } from "react-icons/fi";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface SidebarProps {
   open: boolean;
@@ -7,16 +10,22 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ open, onClose }: SidebarProps) => {
-  if (!open) return null;
-  return (
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!open || !mounted) return null;
+  return createPortal(
     <>
       {/* Overlay */}
       <div
-        className="fixed inset-0 bg-black/40 z-[99]"
+        className="fixed inset-0 bg-black/40 z-[99998]"
         onClick={onClose}
       />
       {/* Sidebar */}
-      <div className="fixed top-0 right-0 h-full w-64 max-w-[80vw] bg-[#232c39] z-[100] shadow-lg flex flex-col p-6 animate-slide-in">
+      <div
+        role="dialog"
+        aria-modal="true"
+        className="fixed top-0 right-0 h-full w-64 max-w-[80vw] bg-[#232c39] z-[99999] shadow-lg flex flex-col p-6 animate-slide-in"
+      >
         <button
           className="absolute top-4 right-4 text-white text-2xl"
           aria-label="Close navigation menu"
@@ -37,8 +46,9 @@ const Sidebar = ({ open, onClose }: SidebarProps) => {
           animation: slide-in 0.3s cubic-bezier(0.4,0,0.2,1);
         }
       `}</style>
-    </>
+    </>,
+    document.body
   );
 };
 
-export default Sidebar; 
+export default Sidebar;

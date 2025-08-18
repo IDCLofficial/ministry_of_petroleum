@@ -1,75 +1,71 @@
-"use client";
-
-import React from "react";
+"use client"
+import React, { useMemo, useState } from "react";
 import MediaGalleryCard from "./MediaGalleryCard";
+import { Media } from "../../../lib/types";
 import SearchBar from "../components/SearchBar";
-
-interface MediaItem {
-  image: string;
-  title: string;
-  isVideo?: boolean;
-}
+import ImageViewer from "./ImageViewer";
 
 interface MediaGalleryGridProps {
-  items: MediaItem[];
+  items: Media[];
 }
 
 const MediaGalleryGrid: React.FC<MediaGalleryGridProps> = ({ items }) => {
-  const [searchQuery, setSearchQuery] = React.useState("");
-  const [filteredItems, setFilteredItems] = React.useState(items);
+console.log(items)
+  const [query, setQuery] = useState("");
+  const [viewerOpen, setViewerOpen] = useState(false);
+  const [viewerSrc, setViewerSrc] = useState<string>("");
+  const [viewerAlt, setViewerAlt] = useState<string>("");
 
-  React.useEffect(() => {
-    setFilteredItems(items);
-  }, [items]);
-
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!searchQuery.trim()) {
-      setFilteredItems(items);
-      return;
-    }
-    const lowerQuery = searchQuery.toLowerCase();
-    setFilteredItems(
-      items.filter(
-        (item) =>
-          item.title?.toLowerCase().includes(lowerQuery) ||
-          item.image?.toLowerCase().includes(lowerQuery)
-      )
-    );
+  const openViewer = (src: string, alt: string) => {
+    setViewerSrc(src);
+    setViewerAlt(alt);
+    setViewerOpen(true);
   };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-    if(e.target.value.length===0){
-      setFilteredItems(items);
-    }
-    else{
-      const lowerQuery = e.target.value.toLowerCase();
-      setFilteredItems(
-        items.filter(
-          (item) =>
-            item.title?.toLowerCase().includes(lowerQuery) ||
-            item.image?.toLowerCase().includes(lowerQuery)
-        )
-      );
-    }
-  };
-
+  const filteredItems = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return items;
+    return items.filter((item) => {
+      const title = item?.fields?.title ?? "";
+      return String(title).toLowerCase().includes(q);
+    });
+  }, [items, query]);
   return (
     <>
       <SearchBar
         placeholder="Search"
-        value={searchQuery}
-        onChange={handleInputChange}
-        onSearch={handleSearch}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        onSearch={(e) => e.preventDefault()}
       />
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredItems.map((item, idx) => (
-          <MediaGalleryCard key={idx} image={item.image} title={item.title} isVideo={item.isVideo} />
-        ))}
-      </div>
+      {filteredItems.length === 0 ? (
+        <div className="w-full flex flex-col items-center justify-center py-8">
+          <h1 className="text-2xl font-medium">No media items found</h1>
+        </div>
+      ) : (
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredItems.map((item, idx) => (
+            <MediaGalleryCard
+              key={idx}
+              image={`https:${item.fields.img.fields.file.url}`}
+              title={item.fields.title}
+              isVideo={item.fields.img.isVideo}
+              onClick={() => {
+                if (!item.fields.img.isVideo) {
+                  openViewer(`https:${item.fields.img.fields.file.url}`, item.fields.title);
+                }
+              }}
+            />
+          ))}
+        </div>
+      )}
+      <ImageViewer
+        open={viewerOpen}
+        src={viewerSrc}
+        alt={viewerAlt}
+        onClose={() => setViewerOpen(false)}
+      />
     </>
   );
 };
 
-export default MediaGalleryGrid; 
+export default MediaGalleryGrid;

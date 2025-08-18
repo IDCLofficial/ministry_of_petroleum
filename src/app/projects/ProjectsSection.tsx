@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import { projects } from "./projects";
-import Link from "next/link";
+import { Project, ProjectsResponse} from "../../../lib/types";
 
 
 const PROJECTS_PER_PAGE = 5;
 
-export default function ProjectsSection() {
+export default function ProjectsSection({projects}:{projects:Project[]}) {
+ 
     const [page, setPage] = useState(0);
     const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE);
     const start = page * PROJECTS_PER_PAGE;
@@ -17,17 +17,16 @@ export default function ProjectsSection() {
 
     if(currentProjects.length === 0) {
         return (
-            <div className="w-full flex flex-col gap-2 items center justify-center p-4 border-1 border-gray-200 text-center">
-                <p>No information at the moment. <br/> Come back later</p>
-                <Link href="/" className="bg-primary-green p-2 rounded text-white">Back to homepage</Link>
-            </div>
+            <section className="w-full py-10 md:py-16 bg-white flex flex-col items-center gap-8 md:gap-22 px-4 md:px-8">
+                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center">No projects found</h1>
+            </section>
         )
     }
 
     return (
         <section className="w-full py-10 md:py-16 bg-white flex flex-col items-center gap-8 md:gap-22 px-4 md:px-8">
             {currentProjects.map((project) => (
-                <ProjectCard key={project.title} {...project} />
+                <ProjectCard key={project.fields.projectTitle} title={project.fields.projectTitle} description={project.fields.projectDescription} image={`https:${project.fields.projectImage?.fields.file.url}`} />
             ))}
             <div className="flex gap-4 mt-6">
                 <button
